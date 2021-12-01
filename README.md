@@ -8,3 +8,5 @@
 >com.opencsv:opencsv:3.5
 >
 >After the SDK and dependencies are install, then run the main, and change the name of the file to the one you want to run
+> 
+>The .zip has been included as some exceptions are missing from the github
