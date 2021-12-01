@@ -1,5 +1,5 @@
 # SFAA Compiler
-## Arcadia Youlten, Felipe Perez, Amir Azzam, and Sonia Leal
+### Arcadia Youlten, Felipe Perez, Amir Azzam, and Sonia Leal
 
 ## About the Project
 >This project uses Java sdk13, and the following dependencies needs to be installed:
