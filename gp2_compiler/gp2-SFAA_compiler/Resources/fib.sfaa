@@ -1,0 +1,16 @@
+start
+    var int :#num_one  = 0;
+    var int :#num_two  = 1;
+    var int :#num_three  = 0;
+    var int :#num_fib  = 7;
+    var int :#i = 0;
+
+    meanwhile( #i < #num_fib - 1 )
+        #num_three = #num_two + #num_one ;
+        #num_one = #num_two ;
+        #num_two = #num_three ;
+        #i = #i + 1 ;
+    done
+
+
+end

@@ -1,0 +1,6 @@
+start
+
+    var int : #x;
+    #x = 1;
+
+end

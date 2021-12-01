@@ -1,0 +1,6 @@
+start
+
+     var char : #y  = 'g';
+     var float :#b = 10.2;
+    var int :#a = 7 ;
+end

@@ -1,0 +1,103 @@
+<SFAA> := <function_definition> <main>
+        | <main>
+
+<main> := <start> <statements> <end>
+
+<statements> := <statement> <aux_statements>
+
+<aux_statements> := <statements>
+                  | "e"
+
+<function_call> := <call> <symbol> "{" <parameters_call> "}" <call_termination>
+
+<call_termination> := ";"
+                    | "->" "symbol" ";"
+
+<parameters_call> := "symbol" <parameters_call_aux>
+                   | "e"
+
+<parameters_call_aux> := "," "symbol" <parameters_call_aux>
+                       | "e"
+
+<parameters> := <type> ":" "symbol" <aux_parameters>
+              | "e"
+
+<aux_parameters> := "," <parameters>
+                  | "e"
+
+<statement> := <assignation>
+             | <function_call>
+             | <while_loop>
+             | <if_statement>
+             | <var_definition>
+
+<assignation> := "symbol" "=" <math_expression> ";"
+
+<var_definition> := "var" <type> ":" <value>
+<value> := "symbol" <value_termination>
+<value_termination> := ";"
+                     | "=" "constant" ";"
+
+<type> := "int"
+        | "float"
+        | "char"
+        | "boolean"
+
+<math_expression> := <equation> <aux_math_expression>
+<aux_math_expression> := "+" <equation> <aux_math_expression>
+                       | "-" <equation> <aux_math_expression>
+                       | "e"
+
+<equation> := <original_value> <power_part_2>
+<power_part_2> := "/" <original_value>
+                | "*" <original_value>
+                | "%" <original_value>
+                | "e"
+
+<original_value> := "("  <math_expression> ")"
+                  | "constant"
+                  | "symbol"
+
+<if_statement> := "if" "(" <boolean_expression> ")" <statements> <if_termination>
+
+<if_termination> := <else_if_statement>
+                  | <else_fi_statement>
+
+<else_if_statement> := "elseif" "(" <boolean_expression> ")" <statements> <else_if_statement_termination>
+
+<else_if_statement_termination> := <else_if_statement>
+                                 | <else_fi_statement>
+
+<else_fi_statement> := "else" <statements> "fi"
+                     | "fi"
+
+<while_loop> := "meanwhile" "(" <boolean_expression> ")" <statements> "done"
+
+<function_definition> := "func" <type> ":" "symbol" <aux_function_definition>
+
+<aux_function_definition> := "{" <statements> <function_termination> "}"
+                           |  "<-" <parameters> "{" <statements> <function_termination> "}"
+
+<function_termination> := "return" <return_value>
+<return_value> := "symbol" ";"
+                | "constant" ";"
+                | "void" ";"
+
+<boolean_expression> := <aux_bool_statement> <aux_or>
+
+<aux_or> := "OR" <aux_bool_statement> <aux_or>
+          | "e"
+
+<aux_bool_statement> := <comparison_conditions> <aux_and>
+
+<aux_and> := "AND" <comparison_conditions> <aux_and>
+           | "e"
+
+<comparison_conditions> := <math_expression> <aux_math_part_2>
+<aux_math_part_2> := "==" <math_expression>
+                   | ">" <math_expression>
+                   | "<" <math_expression>
+                   | ">=" <math_expression>
+                   | "<=" <math_expression>
+                   | "!=" <math_expression>
+

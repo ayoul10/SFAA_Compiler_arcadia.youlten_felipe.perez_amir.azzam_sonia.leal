@@ -1,0 +1,976 @@
+[
+    {
+        "Id" : "SFAA",
+        "production" : [
+            [
+                {
+                    "Id" : "function_definition",
+                    "isTerminal" : false
+                },
+                {
+                    "Id": "main",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "main",
+                    "isTerminal": false
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "main",
+        "production": [
+            [
+                {
+                    "Id": "start",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "statements",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "end",
+                    "isTerminal": true
+                }
+            ]
+        ]
+    }, 
+    {
+        "Id": "statements",
+        "production": [
+            [
+                {
+                    "Id": "statement",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "aux_statements",
+                    "isTerminal": false
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "aux_statements",
+        "production": [
+            [
+                {
+                    "Id": "statements",
+                    "isTerminal": false
+                }
+            ],
+            [                    
+                {
+                    "Id": "e",
+                    "isTerminal": true
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "function_call",
+        "production": [
+            [
+                {
+                    "Id": "call",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "symbol",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "{",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "parameters_call",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "}",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "call_termination",
+                    "isTerminal": false
+                }
+            ]
+        ]
+        },
+        {
+            "Id": "call_termination",
+            "production": [
+                [
+                    {
+                        "Id": ";",
+                        "isTerminal": true
+                    }
+                ],
+                [
+                    {
+                        "Id": "->",
+                        "isTerminal": true
+                    },
+                    {
+                        "Id": "symbol",
+                        "isTerminal": true
+                    },
+                    {
+                        "Id": ";",
+                        "isTerminal": true
+                    }
+                ]
+            ]
+        },
+        {
+        "Id": "parameters_call",
+        "production": [
+            [
+                {
+                    "Id": "symbol",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "parameters_call_aux",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "e",
+                    "isTerminal": true
+                }
+            ]
+        ]
+    },
+    {
+    "Id": "parameters_call_aux",
+    "production": [
+        [
+            {
+                "Id": ",",
+                "isTerminal": true
+            },
+            {
+                "Id": "symbol",
+                "isTerminal": true
+            },
+            {
+                "Id": "parameters_call_aux",
+                "isTerminal": false
+            }
+        ],
+        [
+            {
+                "Id": "e",
+                "isTerminal": true
+            }
+        ]
+    ]
+},
+    {
+        "Id": "parameters",
+        "production": [
+            [
+                {
+                    "Id": "type",
+                    "isTerminal": false
+                },
+                {
+                    "Id": ":",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "symbol",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "aux_parameters",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "e",
+                    "isTerminal": true
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "aux_parameters",
+        "production": [
+            [
+                {
+                    "Id": ",",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "parameters",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "e",
+                    "isTerminal": true
+                }
+            ]
+        ]
+    },
+    
+    {
+        "Id": "statement",
+        "production": [
+            [
+                {
+                    "Id": "assignation",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "function_call",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "while_loop",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "if_statement",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "var_definition",
+                    "isTerminal": false
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "assignation",
+        "production": [
+            [
+
+                {
+                    "Id": "symbol",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "=",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "math_expression",
+                    "isTerminal": false
+                },
+                {
+                    "Id": ";",
+                    "isTerminal": true
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "var_definition",
+        "production": [
+            [
+                {
+                    "Id": "var",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "type",
+                    "isTerminal": false
+                },
+                {
+                    "Id": ":",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "value",
+                    "isTerminal": false
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "value",
+        "production": [
+            [
+                {
+                    "Id": "symbol",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "value_termination",
+                    "isTerminal": false
+                }
+
+            ]
+        ]
+    },
+    {
+        "Id": "value_termination",
+        "production": [
+            [
+                {
+                    "Id": ";",
+                    "isTerminal": true
+                }
+
+            ],
+            [
+                {
+                    "Id": "=",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "constant",
+                    "isTerminal": true
+                },
+                {
+                    "Id": ";",
+                    "isTerminal": true
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "type",
+        "production": [
+            [
+                {
+                    "Id": "int",
+                    "isTerminal": true
+                }
+            ],
+            [
+                {
+                    "Id": "float",
+                    "isTerminal": true
+                }
+            ],
+            [
+                {
+                    "Id": "char",
+                    "isTerminal": true
+                }
+            ],
+            [
+                {
+                    "Id": "boolean",
+                    "isTerminal": true
+                }
+            ]
+        ]
+
+    },
+    {
+        "Id": "math_expression",
+        "production": [
+            [
+                {
+                    "Id": "equation",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "aux_math_expression",
+                    "isTerminal": false
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "aux_math_expression",
+        "production": [
+            [
+                {
+                    "Id": "+",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "equation",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "aux_math_expression",
+                    "isTerminal": false
+                }
+
+            ],
+            [
+                {
+                    "Id": "-",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "equation",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "aux_math_expression",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "e",
+                    "isTerminal": true
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "equation",
+        "production": [
+            [
+                {
+                    "Id": "original_value",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "power_part_2",
+                    "isTerminal": false
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "power_part_2",
+        "production": [
+            [
+                {
+                    "Id": "/",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "original_value",
+                    "isTerminal": false
+                }
+            ],
+            [
+
+                {
+                    "Id": "*",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "original_value",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "%",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "original_value",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "e",
+                    "isTerminal": true
+                }
+            ]
+        ]
+    },
+    {
+        
+        "Id": "original_value",
+        "production": [
+            [
+                {
+                    "Id": "(",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "math_expression",
+                    "isTerminal": false
+                },
+                {
+                    "Id": ")",
+                    "isTerminal": true
+                }
+            ],
+            [
+                {
+                    "Id": "constant",
+                    "isTerminal": true
+                }
+            ],
+            [
+                {
+                    "Id": "symbol",
+                    "isTerminal": true
+                }
+            ]
+        ]
+        
+    },
+    {
+        "Id": "if_statement",
+        "production": [
+            [
+                {
+                    "Id": "if",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "(",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "boolean_expression",
+                    "isTerminal": false
+                },
+                {
+                    "Id": ")",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "statements",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "if_termination",
+                    "isTerminal": false
+                }
+            ]
+        ]
+    
+    },
+    {
+        "Id": "if_termination",
+        "production": [
+            [
+                {
+                    "Id": "else_if_statement",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "else_fi_statement",
+                    "isTerminal": false
+                }
+            ]
+        ]
+    
+    },
+    {
+        "Id": "else_if_statement",
+        "production": [
+            [
+                {
+                    "Id": "elseif",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "(",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "boolean_expression",
+                    "isTerminal": false
+                },
+                {
+                    "Id": ")",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "statements",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "else_if_statement_termination",
+                    "isTerminal": false
+                }
+            ]
+        ]
+    
+    },
+    {
+        "Id": "else_if_statement_termination",
+        "production": [
+            [
+                {
+                    "Id": "else_if_statement",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "else_fi_statement",
+                    "isTerminal": false
+                }
+            ]
+        ]
+
+    },
+    {
+        "Id": "else_fi_statement",
+        "production": [
+            [
+                {
+                    "Id": "else",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "statements",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "fi",
+                    "isTerminal": true
+                }
+            ],
+            [
+                {
+                    "Id": "fi",
+                    "isTerminal": true
+                }
+            ]
+        ]
+    
+    },
+    {
+        "Id": "while_loop",
+        "production": [
+            [
+                {
+                    "Id": "meanwhile",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "(",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "boolean_expression",
+                    "isTerminal": false
+                },
+                {
+                    "Id": ")",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "statements",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "done",
+                    "isTerminal": true
+                }
+            ]
+        ]
+    
+    },
+    {
+        "Id": "function_definition",
+        "production": [
+            [
+                {
+                    "Id": "func",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "type",
+                    "isTerminal": false
+                },
+                {
+                    "Id": ":",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "symbol",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "aux_function_definition",
+                    "isTerminal": false
+                }
+            ]
+        ]
+
+    },
+     {
+        "Id": "aux_function_definition",
+        "production": [
+            [
+                {
+                    "Id": "{",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "statements",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "function_termination",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "}",
+                    "isTerminal": true
+                }
+            ],
+           [
+                {
+                    "Id": "<-",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "parameters",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "{",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "statements",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "function_termination",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "}",
+                    "isTerminal": true
+                }
+            ]
+        ]
+
+    },
+    {
+        "Id": "function_termination",
+        "production": [
+            [
+                {
+                    "Id": "return",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "return_value",
+                    "isTerminal": false
+                }
+            ]
+        ]
+
+    },
+    {
+        "Id": "return_value",
+        "production": [
+            [
+
+                {
+                    "Id": "symbol",
+                    "isTerminal": true
+                },
+                {
+                    "Id": ";",
+                    "isTerminal": true
+                }
+            ],
+            [
+
+                {
+                    "Id": "constant",
+                    "isTerminal": true
+                },
+                {
+                    "Id": ";",
+                    "isTerminal": true
+                }
+            ],
+            [
+                {
+                    "Id": "void",
+                    "isTerminal": true
+                },
+                {
+                    "Id": ";",
+                    "isTerminal": true
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "boolean_expression",
+        "production": [
+            [
+                {
+                    "Id": "aux_bool_statement",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "aux_or",
+                    "isTerminal": false
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "aux_or",
+        "production": [
+            [
+                {
+                    "Id": "OR",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "aux_bool_statement",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "aux_or",
+                    "isTerminal": false
+                }
+            ],
+            [
+               {
+                    "Id": "e",
+                    "isTerminal": true
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "aux_bool_statement",
+        "production": [
+            [
+                {
+                    "Id": "comparison_conditions",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "aux_and",
+                    "isTerminal": false
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "aux_and",
+        "production": [
+            [
+                {
+                    "Id": "AND",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "comparison_conditions",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "aux_and",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "e",
+                    "isTerminal": true
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "comparison_conditions",
+        "production": [
+            [
+                {
+                    "Id": "math_expression",
+                    "isTerminal": false
+                },
+                {
+                    "Id": "aux_math_part_2",
+                    "isTerminal": false
+                }
+            ]
+        ]
+    },
+    {
+        "Id": "aux_math_part_2",
+        "production": [
+            [
+                {
+                    "Id": "==",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "math_expression",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": ">",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "math_expression",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "<",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "math_expression",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": ">=",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "math_expression",
+                    "isTerminal": false
+                }
+            ],
+            [
+                {
+                    "Id": "<=",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "math_expression",
+                    "isTerminal": false
+                }
+            ],
+            [
+
+                {
+                    "Id": "!=",
+                    "isTerminal": true
+                },
+                {
+                    "Id": "math_expression",
+                    "isTerminal": false
+                }
+            ]
+        ]
+    }
+]
